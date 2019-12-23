@@ -9,15 +9,24 @@ const electron = require("electron");
 const {dialog} = require('electron').remote;
 const BrowserWindow = electron.remote.BrowserWindow;
 
-var createDocWindow;
+let createDocWindow;
 
 
 document.getElementById("createDoc").onclick = function () {
-    createDocWindow = new BrowserWindow({width: 1000, height: 800});
-    createDocWindow.loadFile("doc_module/create_doc_main.html");
-    createDocWindow.on("close", function () {
-        createDocWindow = null;
-    })
+    createDocWindow = new BrowserWindow(
+        {
+            width: 1000,
+            height: 800,
+            webPreferences: {
+                nodeIntegration: true
+            }
+        });
+    createDocWindow
+        .loadFile("doc_module/create_doc_main.html")
+        .then(() => createDocWindow
+            .on("close", function () {
+                createDocWindow = null;
+            }));
 }
 
 
