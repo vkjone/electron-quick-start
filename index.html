@@ -3,15 +3,21 @@
   <head>
     <meta charset="UTF-8">
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+<!--    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">-->
+<!--    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">-->
     <title>Hello World!</title>
   </head>
   <body>
-    <h1>Hello World!</h1>
-    We are using Node.js <span id="node-version"></span>,
-    Chromium <span id="chrome-version"></span>,
-    and Electron <span id="electron-version"></span>.
+
+    <button id ="createDoc">生成文档</button>
+    <button id ="createCode">生成代码</button>
+
+    <button onclick="accessBaidu()">accessBaidu</button>
+
+    <h2>打开文件选择框</h2>
+    <button onclick="openDialog()">打开</button>
+    <h2>访问子窗口</h2>
+    <button onclick="openNewWindow()">访问子窗口</button>
 
     <!-- You can also require other files to run in this process -->
     <script src="./renderer.js"></script>
