@@ -17,7 +17,7 @@ document.getElementById("add_interface").onclick = function () {
     interfaceIndex++;
 }
 
-document.getElementById("background").onclick = function () {
+document.getElementById("foreword").onclick = function () {
     let createDocWindow = new BrowserWindow({
         width: 1000,
         height: 800,
@@ -25,8 +25,8 @@ document.getElementById("background").onclick = function () {
             nodeIntegration: true
         }
     });
-    //background.html
-    createDocWindow.loadFile("doc_module/background.html").then(() =>
+    //foreword.html
+    createDocWindow.loadFile("doc_module/index.html").then(() =>
         createDocWindow.on("close", function () {
         createDocWindow = null;
     }));
