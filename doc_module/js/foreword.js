@@ -1,9 +1,5 @@
+resultObject = require('electron').remote.getGlobal('resultObject');
 $(function () {
-        $('#submit').click(function () {
-            let content = $('textarea').val();
-            console.log(content);
-        });
-
         $('#insert_noun').click(function () {
             // let $subPage = $('.sub_page');
             let $mainPage = $('.main_page');
@@ -19,13 +15,19 @@ $(function () {
 
             let $p1 = $('<p></p>').append($nounInput);
             let $p2 = $('<p></p>').append($explainTestarea);
-            $p1.appendTo($subPage);
-            $p2.appendTo($subPage);
-            $subPage.appendTo($mainPage);
+            $subPage.append($p1);
+            $subPage.append($p2);
+            $subPage.append('==============================');
+            $mainPage.append($subPage);
+            // $p1.appendTo($subPage);
+            // $p2.appendTo($subPage);
+            // $subPage.appendTo($mainPage);
         });
 
         $("#submit").click(function () {
+            console.log("haha");
             console.log(JSON.stringify($("form").parseForm()));
+            resultObject.foreword = $("form").parseForm();
         });
     }
 )

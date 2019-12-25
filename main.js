@@ -2,9 +2,13 @@
 const {app, BrowserWindow} = require('electron')
 const path = require('path')
 
+global.resultObject = {
+    foreword:""
+};
+
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
-let mainWindow
+let mainWindow;
 
 function createWindow() {
     // Create the browser window.
@@ -41,6 +45,7 @@ app.on('ready', createWindow)
 app.on('window-all-closed', function () {
     // On macOS it is common for applications and their menu bar
     // to stay active until the user quits explicitly with Cmd + Q
+    console.log(resultObject);
     if (process.platform !== 'darwin') app.quit()
 })
 
