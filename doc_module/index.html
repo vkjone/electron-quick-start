@@ -38,13 +38,15 @@ body{font:12px/180% Arial, Helvetica, sans-serif, "新宋体";}
 <form action="#" method="post">
 <div id="wizard">
 	<ul id="status">
-		<li class="active"><strong>1.</strong>创建账户</li>
-		<li><strong>2.</strong>填写联系信息</li>
-		<li><strong>3.</strong>完成</li>
+		<li class="active"><strong>1.</strong>编写目的</li>
+		<li><strong>2.</strong>名词解释</li>
+		<li><strong>3.</strong>参考资料</li>
+		<li><strong>4.</strong>完成</li>
 	</ul>
 	<div class="items">
 		<div class="page">
-		   <h3>创建一个账户<br/><em>请填写您的注册账户信息，用于登录。</em></h3>
+		   <h3>编写目的<br/><em>请填写您的注册账户信息，用于登录。</em></h3>
+			<p><label>用户名：</label><input type="text" class="input" id="user" name="username" /></p>
 		   <p><label>用户名：</label><input type="text" class="input" id="user" name="username" /></p>
 		   <p><label>密码：</label><input type="password" class="input" id="pass" name="password" /></p>
 		   <p><label>确认密码：</label><input type="password" class="input" id="pass1" name="password1" /></p>
@@ -108,10 +110,31 @@ $(function(){
 	
 	$("#sub").click(function(){
 		var data = $("form").serialize();
-		alert(data);
+		var data2 = $("form").JSON;
+		console.log(JSON.stringify($("form").parseForm()));
 	});
 	
 });
+</script>
+
+<script type="text/javascript">
+	$.fn.parseForm=function(){
+		var serializeObj={};
+		var array=this.serializeArray();
+		var str=this.serialize();
+		$(array).each(function(){
+			if(serializeObj[this.name]){
+				if($.isArray(serializeObj[this.name])){
+					serializeObj[this.name].push(this.value);
+				}else{
+					serializeObj[this.name]=[serializeObj[this.name],this.value];
+				}
+			}else{
+				serializeObj[this.name]=this.value;
+			}
+		});
+		return serializeObj;
+	};
 </script>
 
 </body>

@@ -3,9 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>前言</title>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/foreword.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/foreword.css">
 </head>
 <body>
-    <textArea rows="5" id="foreword_content"></textArea>
-    <button id="submit">提交</button>
+<!--    <textArea rows="5" id="foreword_content"></textArea>-->
+<!--    <button id="submit">提交</button>-->
+<form>
+    <div class="main_page">
+        <h2>编写目的</h2>
+        <textarea name="a" style="width:200px;height:80px;">这里写内容</textarea>
+        <h2>名词解释</h2>
+
+        <div class="sub_page">
+            <p><input name="noun"/></p>
+            <p><textarea name="explain">输入名词解释</textarea></p>
+        </div>
+    </div>
+
+</form>
+<button id="insert_noun">+</button>
+<button id="delete_noun">-</button>
+
+<button id="submit">提交</button>
 </body>
 </html>

@@ -26,7 +26,7 @@ document.getElementById("foreword").onclick = function () {
         }
     });
     //foreword.html
-    createDocWindow.loadFile("doc_module/index.html").then(() =>
+    createDocWindow.loadFile("doc_module/foreword.html").then(() =>
         createDocWindow.on("close", function () {
         createDocWindow = null;
     }));
