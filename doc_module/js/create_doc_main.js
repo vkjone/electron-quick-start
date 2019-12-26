@@ -49,6 +49,19 @@ $(function () {
         $interfaceButton.each(function (index, element) {
             console.log($interfaceButton.length)
             element.onclick = function () {
+                let interfaceWindow = new BrowserWindow({
+                    title: "fuck",
+                    width: 800,
+                    height: 600,
+                    webPreferences: {
+                        nodeIntegration: true
+                    }
+                });
+                interfaceWindow.loadFile("doc_module/interface.html").then(() =>
+                    interfaceWindow.on("close", function () {
+                        console.log(resultObject.foreword)
+                        interfaceWindow = null;
+                    }));
                 console.log(element);
                 console.log("haha");
             }
